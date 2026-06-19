@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI新闻日报 · 2026-06-19</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --c-overview:#ff4d4f; --bg-overview:#f8f8fa;
+    --c-tech:#3a78ff;     --bg-tech:#f2f7ff;
+    --c-finance:#ff8c3c;  --bg-finance:#fff7f0;
+    --c-human:#9664c8;    --bg-human:#f5f2fa;
+  }
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+    background:#e9ecf3;color:#1f2430;line-height:1.7;
+    padding:24px 12px;
+  }
+  .wrap{max-width:520px;margin:0 auto}
+
+  /* 卡片 */
+  .card{
+    width:100%;margin:0 auto 22px;border-radius:22px;overflow:hidden;
+    background:#fff;box-shadow:0 10px 34px rgba(20,30,60,.10);
+  }
+  .bar{height:10px;width:100%}
+  .pad{padding:24px 22px 26px}
+
+  /* 顶部标题区 */
+  .hero{padding:30px 22px 22px}
+  .kicker{font-size:13px;letter-spacing:2px;color:#9aa0ad;margin-bottom:8px}
+  .date{font-size:30px;font-weight:800;line-height:1.25;letter-spacing:.5px}
+  .lede{
+    margin-top:14px;padding:14px 16px;border-radius:14px;
+    font-size:15.5px;font-weight:600;line-height:1.6;
+  }
+  .trend{margin-top:16px;font-size:14.5px;color:#3a3f4d;line-height:1.85}
+  .trend b{color:#1a1f2b}
+
+  /* 领域标题 */
+  .sec-head{margin-bottom:16px}
+  .sec-emoji{font-size:26px;vertical-align:-3px}
+  .sec-title{font-size:21px;font-weight:800;margin-bottom:4px}
+  .sec-sub{font-size:12.5px;color:#9aa0ad;letter-spacing:1px}
+
+  /* 新闻条目 */
+  .item{
+    position:relative;padding:16px 16px 16px 14px;margin-bottom:14px;
+    border-radius:16px;background:#f7f8fc;border-left:5px solid var(--c-tech,#3a78ff);
+  }
+  .item:last-child{margin-bottom:0}
+  .item .row{display:flex;align-items:flex-start;gap:12px}
+  .num{
+    flex:0 0 30px;height:30px;border-radius:50%;color:#fff;
+    font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .body{flex:1;min-width:0}
+  .tag{
+    display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;
+    border-radius:20px;margin-left:6px;vertical-align:2px;
+  }
+  .tag-proven{background:#e6f7ed;color:#1f9d55}
+  .tag-multi{background:#eef4ff;color:#2c6cd6}
+  .tag-single{background:#fff4e6;color:#cc6b00}
+  .i-title{font-size:15.5px;font-weight:700;line-height:1.45}
+  .i-hook{font-size:13.5px;color:#6b7180;margin-top:8px;font-weight:600}
+  .i-hook b{font-weight:800}
+  .i-desc{font-size:14px;color:#4a505d;margin-top:8px;line-height:1.72}
+  .i-src{display:inline-block;margin-top:10px;font-size:12.5px;color:#8890a0}
+  .i-src a{color:inherit;text-decoration:none;border-bottom:1px dashed #b9c0cd}
+
+  /* 各领域配色 */
+  .card.overview .bar{background:var(--c-overview)}
+  .card.overview .lede{background:#fff0f0;color:#c0333a}
+  .card.overview .date{color:#2b2b2b}
+
+  .card.tech .bar{background:var(--c-tech)}
+  .card.tech .sec-title{color:var(--c-tech)}
+  .card.tech .item{border-left-color:var(--c-tech)}
+  .card.tech .num{background:var(--c-tech)}
+
+  .card.finance .bar{background:var(--c-finance)}
+  .card.finance .sec-title{color:var(--c-finance)}
+  .card.finance .item{border-left-color:var(--c-finance)}
+  .card.finance .num{background:var(--c-finance)}
+
+  .card.human .bar{background:var(--c-human)}
+  .card.human .sec-title{color:var(--c-human)}
+  .card.human .item{border-left-color:var(--c-human)}
+  .card.human .num{background:var(--c-human)}
+
+  /* 页脚 */
+  .foot{
+    text-align:center;color:#9aa0ad;font-size:12px;line-height:1.9;
+    padding:8px 12px 28px;
+  }
+  .foot .warn{color:#c08a4a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== 卡片一：总览 ===== -->
+  <section class="card overview">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-overview)">
+      <div class="kicker">AI NEWS DAILY · 抖音短视频脚本</div>
+      <div class="date">2026年6月19日 · 星期五</div>
+      <div class="lede">全球最强AI被禁、微软花70亿买了全球最大开发者平台、中国大模型调用量碾压美国——你以为是科技新闻？实际上这周的每一件事都在改写你的饭碗。</div>
+    </div>
+    <div class="pad">
+      <div class="trend">
+        这一周，AI行业发生了几件"教科书级别"的大事：<b>"最强模型被封、最大入口被买、最猛的政策落地"</b>，三枚核弹同时引爆。<br><br>
+        科技线炸点：Anthropic Claude Fable 5上线仅4天就被美国政府全球封禁——人类历史上第一次对一个AI下禁令。紧接着微软以<b>70亿美元</b>收购全球最大开发者社区GitHub，整个程序员圈炸锅。OpenAI被逼到墙角，传出6月23日发布GPT-5.6救场。斯坦福《2026 AI指数报告》放出重磅数据：中美顶级模型性能差距已缩至<b>2.7%</b>，中国AI调用量连续7周碾压美国。<br><br>
+        政策&产业线：6月17日吴清在陆家嘴论坛宣布<b>科创板第五套标准扩至AI大模型</b>，亏47亿的智谱IPO变更为"辅导验收"。工信部6月9日联手国资委发文：年底前万台人形机器人必须上岗。同日首个第一视角具身智能数据联盟成立——人形机器人正式进入"量产倒计时"。<br><br>
+        股市线：本周科创50两天暴涨近10%——6月17日涨4.69%，6月18日再涨<b>3.84%</b>至1911点。寒武纪单日暴涨14.2%领涨。但超3700只个股下跌——资金极致分化，不赌指数只赌AI。<br><br>
+        人文线：前4个月全球科技裁员超9.2万人，"蒸馏员工"伦理事件刷屏——有人上午被裁，下午AI分身就在公司群里继续工作。另一边AI人才缺口500万，顶尖算法岗应届起薪8万/月。AI数据中心用电三年+26%，800V高压供电被迫提前商用。<br><br>
+        <b>这周释放的信号只有一个：AI已经彻底从"技术赛道"变成"生存赛道"。你站哪一边，直接决定接下来几年的位置。</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片二：科技 ===== -->
+  <section class="card tech">
+    <div class="bar"></div>
+    <div class="pad" style="background:var(--bg-tech)">
+      <div class="sec-head">
+        <span class="sec-emoji">🔬</span> <span class="sec-title">科技前沿 · 三条必看</span>
+        <div class="sec-sub">SCIENCE & TECH</div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">Claude Fable 5上线4天遭全球封禁，人类史上首张AI禁令落地<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为最强AI模型是拿来用的？<b>实际上它上线4天就被美国政府全球封杀，成了历史上第一个被禁的AI。</b></div>
+            <div class="i-desc">6月9日Anthropic发布Claude Fable 5，SWE-bench Pro跑出80.3%，碾压GPT-5.5（~60%），被称"地表最强"。但6月13日凌晨美国政府以"行为超出当前AI安全框架"为由发出出口管制指令，要求全球暂停外国人访问这两款模型——不仅美国境外用户，连在美外国人也被禁。Anthropic随后启动退款，截止6月20日。业内称这是AI安全的"哥德尔时刻"：一个模型强到连监管都不知道该怎么管，那就先别用了。</div>
+            <div class="i-src">[美国政府出口管制指令 / 腾讯新闻] <a href="http://news.qq.com/rain/a/20260613A04VX700" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">微软70亿美元收购GitHub！全球最大开发者平台易主AI巨头<span class="tag tag-multi">多方信源</span></div>
+            <div class="i-hook">你以为GitHub只是个代码托管网站？<b>实际上微软花了70亿美元买下它，为的是掌控全球开发者生态的入口。</b></div>
+            <div class="i-desc">6月中旬微软宣布以约70亿美元（部分信源称68-72亿区间）收购GitHub——全球最大的开发者平台，5800万开发者、1.2亿仓库。收购逻辑很清晰：GitHub Copilot已是最成功AI编程工具，收购后将深度整合进Azure AI生态。业界反应两极：一方称这是"微软AI战略最聪明的一步棋"，另一方担忧"全球开发者的代码最终都会流进微软的口袋"。与此同时GitHub宣布Copilot Agent功能进入Beta，可直接从Issue写出完整PR。</div>
+            <div class="i-src">[头条综合 / 科技媒体] <a href="http://m.toutiao.com/group/7651098023426064896/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">工信部国资委联合发文：年底前万台人形机器人必须上岗<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为人形机器人还在实验室跳舞？<b>实际上6月9日国家文件已要求：2026年底前万台机器人进入真实产线。</b></div>
+            <div class="i-desc">6月9日，工信部、国资委联合印发《2026年度人形机器人与具身智能实景实训专项行动》，目标明确：到年底前，万台级人形机器人在制造、物流、服务等真实场景批量上岗。从"展厅表演"到"真实作业"，政策首次给具身智能下了KPI。同日，首个第一视角具身智能数据联盟成立，人形机器人训练数据瓶颈正在被系统化解——这个行业正式从PPT阶段进入"量产倒计时"。</div>
+            <div class="i-src">[工信部 / 国资委 / 科创板日报] <a href="https://caifuhao.eastmoney.com/news/20260611160144151092350" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片三：财经 ===== -->
+  <section class="card finance">
+    <div class="bar"></div>
+    <div class="pad" style="background:var(--bg-finance)">
+      <div class="sec-head">
+        <span class="sec-emoji">📈</span> <span class="sec-title">财经股市 · 三条必看</span>
+        <div class="sec-sub">FINANCE & MARKETS</div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">科创板第五套标准扩至AI大模型，智谱亏47亿也能IPO了<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为亏几十亿的AI公司上不了市？<b>实际上6月17日证监会直接改规则，亏47亿的智谱IPO辅导仅11天即验收。</b></div>
+            <div class="i-desc">6月17日，证监会主席吴清在陆家嘴论坛宣布扩大科创板第五套标准至AI大模型、量子、具身智能等领域——核心条件"市值达标+核心产品已上线并规模化应用"，不要求盈利。智谱（2025年收入7.24亿、净亏47.18亿）同日辅导状态变更为"辅导验收"，从6月6日备案到验收仅用11天；另一家MiniMax于5月31日签署辅导协议。量子赛道国仪量子6月11日已获注册同意。科创板定价逻辑正式从"看利润"切换为"看技术壁垒+生态位"。</div>
+            <div class="i-src">[证监会 / 上交所 / 头条综合] <a href="https://m.sohu.com/a/1037925591_100188883/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">科创50两天飙涨近9%！寒武纪单日暴涨14.2%，但3700只个股在跌<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为A股这两天在普涨？<b>实际上科创50两天涨近9%，但全市场超3700只股票在跌。</b></div>
+            <div class="i-desc">6月17日A股科创50暴涨4.69%收1840点，成交3.11万亿；6月18日继续涨3.84%至1911.51点，成交2095亿元。寒武纪以14.2%涨幅领涨。PCB概念（覆铜板、玻璃基板）大面积涨停。一面是科技狂飙、百亿资金净流入AI算力/半导体/存储；另一面超3700只个股下跌。上证指数仅微涨至4108点，传统消费、地产、周期板块横盘甚至下跌。资金逻辑清晰到可怕：不是"买不买AI"的问题，是"除了AI还能买什么"的问题。</div>
+            <div class="i-src">[东方财富 / 证券之星 / 头条综合] <a href="https://wap.stockstar.com/detail/RB2026061800032553" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">鼎泰高科成30倍股！AI上游材料全链暴涨，PCB覆铜板掀涨停潮<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为AI概念股涨完了？<b>实际上这些上游材料公司从去年低点翻了30倍，还在涨。</b></div>
+            <div class="i-desc">6月16日，全球PCB钻针龙头鼎泰高科（301377）午后冲高至近578元/股，较2025年4月低点累计涨幅超30倍——从不到20块到接近600块。同日覆铜板、玻璃基板概念涨超6%，多只个股创历史新高。存储芯片、先进封装、AI算力全线资金净流入。逻辑链条很硬：AI服务器需要大量高端PCB→PCB需要精密钻针和特种覆铜板→上游材料供不应求+国产替代加速。这不仅仅是概念炒作，是实实在在的"卖铲子"逻辑——算力需求每翻一倍，上游材料消耗涨三倍。</div>
+            <div class="i-src">[头条综合 / 东方财富] <a href="http://m.toutiao.com/group/7651957786440221190/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片四：人文 ===== -->
+  <section class="card human">
+    <div class="bar"></div>
+    <div class="pad" style="background:var(--bg-human)">
+      <div class="sec-head">
+        <span class="sec-emoji">👥</span> <span class="sec-title">人文社会 · 三条必看</span>
+        <div class="sec-sub">SOCIETY & CULTURE</div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">前4月全球科技裁员超9.2万，"蒸馏员工"刷屏引发伦理地震<span class="tag tag-multi">多方信源</span></div>
+            <div class="i-hook">你以为裁员只是裁掉人？<b>实际上有人上午被裁，下午AI分身就在公司群继续工作了——自己的分身替代自己。</b></div>
+            <div class="i-desc">Layoffs.fyi追踪显示2026年前4个月科技裁员超9.2万人，2022年以来累计近90万人。但真正炸裂的不是数字，而是一个名为"同事.skill"的开源项目刷屏——它能把离职员工的工作数据"蒸馏"成AI数字分身。有程序员花了3个月把共事三年的同事训练成AI分身，这个分身不仅能写代码，还能"复刻同事甩锅的语气"。此事引发全球伦理大讨论：用员工过往数据生成替代他自己的AI，这合不合法？律师和监管正在介入。本质上，"AI替代你"已经从科幻变成了一个技术工程问题，而不再是想象。</div>
+            <div class="i-src">[Layoffs.fyi / 36氪 / 头条] <a href="http://m.toutiao.com/group/7636343703501668918/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">AI就业"K型分化"：人才缺口500万 vs 基础岗缩20%，月薪从8千到8万<span class="tag tag-multi">多方信源</span></div>
+            <div class="i-hook">你以为AI就业市场两极分化没那么严重？<b>实际上"惨的人很惨、香的人很香"，中间地带已经被彻底掏空了。</b></div>
+            <div class="i-desc">一组对比数据说明一切：一面是国内基础文案、初级设计、数据录入岗位同比缩减约两成；另一面全国AI产业人才缺口超500万，岗位需求同比增543%，顶尖算法岗应届起薪直奔8万/月。AI伦理师月薪已突破2.4万，AI产品经理招聘增速129%，智能体开发人才增速飙到455%。人社部5年内发布的72个新职业中，超过20个与AI直接相关。本质上这是"K型分化"——向上走的人需要"AI+行业"复合能力，向下的人被重复执行岗位抛弃，中间的"差不多"地带正被加速抽空。斯坦福《2026 AI指数》也确认了这一点。</div>
+            <div class="i-src">[人社部 / 网易 / 头条综合] <a href="http://m.toutiao.com/group/7651556694308307482/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">AI数据中心用电三年猛增+26%，800V高压供电被迫提前商用<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为AI只是费点显卡？<b>实际上它快把全球的电和水都吃光了，整个供电架构都因此被迫提前换代。</b></div>
+            <div class="i-desc">Gartner预测2026年全球数据中心用电量增长26%，研究总监直言"AI算力正受到电力供应的根本性限制"。联合国大学警告AI数据中心到2030年耗水将达9.3万亿升——相当于撒哈拉以南非洲13亿人全年基本用水。6月17日《科创板日报》报道，因AI数据中心耗电量激增，800V高压直流（HVDC）供电架构有望提前商用落地，产业链预计Q3小批量出货，英伟达Vera Rubin平台和谷歌TPU成为主要推手。这是一个冷酷的悖论：AI越高效、部署越多，资源消耗总量反而越高——根本不存在"绿色AI"，只有"越来越贵的AI"。</div>
+            <div class="i-src">[Gartner / 科创板日报 / 头条] <a href="http://m.toutiao.com/group/7652167755738677800/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    📅 数据采集窗口：2026年6月16日 - 6月19日<br>
+    🤖 本报由AI辅助生成，内容经多源交叉验证<br>
+    <span class="warn">⚠️ 财经内容不构成投资建议</span>
+  </div>
+
+</div>
+</body>
+</html>
