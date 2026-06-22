@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI新闻日报 · 2026-06-22</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --c-overview:#ff4d4f; --bg-overview:#f8f8fa;
+    --c-tech:#3a78ff;     --bg-tech:#f2f7ff;
+    --c-finance:#ff8c3c;  --bg-finance:#fff7f0;
+    --c-human:#9664c8;    --bg-human:#f5f2fa;
+  }
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+    background:#e9ecf3;color:#1f2430;line-height:1.7;
+    padding:24px 12px;
+  }
+  .wrap{max-width:520px;margin:0 auto}
+
+  /* 卡片 */
+  .card{
+    width:100%;margin:0 auto 22px;border-radius:22px;overflow:hidden;
+    background:#fff;box-shadow:0 10px 34px rgba(20,30,60,.10);
+  }
+  .bar{height:10px;width:100%}
+  .pad{padding:24px 22px 26px}
+
+  /* 顶部标题区 */
+  .hero{padding:30px 22px 22px}
+  .kicker{font-size:13px;letter-spacing:2px;color:#9aa0ad;margin-bottom:8px}
+  .date{font-size:30px;font-weight:800;line-height:1.25;letter-spacing:.5px}
+  .lede{
+    margin-top:14px;padding:14px 16px;border-radius:14px;
+    font-size:15.5px;font-weight:600;line-height:1.6;
+  }
+  .trend{margin-top:16px;font-size:14.5px;color:#3a3f4d;line-height:1.85}
+  .trend b{color:#1a1f2b}
+
+  /* 领域标题 */
+  .sec-head{margin-bottom:16px}
+  .sec-emoji{font-size:26px;vertical-align:-3px}
+  .sec-title{font-size:21px;font-weight:800;margin-bottom:4px}
+  .sec-sub{font-size:12.5px;color:#9aa0ad;letter-spacing:1px}
+
+  /* 新闻条目 */
+  .item{
+    position:relative;padding:16px 16px 16px 14px;margin-bottom:14px;
+    border-radius:16px;background:#f7f8fc;border-left:5px solid var(--c-tech,#3a78ff);
+  }
+  .item:last-child{margin-bottom:0}
+  .item .row{display:flex;align-items:flex-start;gap:12px}
+  .num{
+    flex:0 0 30px;height:30px;border-radius:50%;color:#fff;
+    font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .body{flex:1;min-width:0}
+  .tag{
+    display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;
+    border-radius:20px;margin-left:6px;vertical-align:2px;
+  }
+  .tag-proven{background:#e6f7ed;color:#1f9d55}
+  .tag-multi{background:#eef4ff;color:#2c6cd6}
+  .tag-single{background:#fff4e6;color:#cc6b00}
+  .i-title{font-size:15.5px;font-weight:700;line-height:1.45}
+  .i-hook{font-size:13.5px;color:#6b7180;margin-top:8px;font-weight:600}
+  .i-hook b{font-weight:800}
+  .i-desc{font-size:14px;color:#4a505d;margin-top:8px;line-height:1.72}
+  .i-src{display:inline-block;margin-top:10px;font-size:12.5px;color:#8890a0}
+  .i-src a{color:inherit;text-decoration:none;border-bottom:1px dashed #b9c0cd}
+
+  /* 各领域配色 */
+  .card.overview .bar{background:var(--c-overview)}
+  .card.overview .lede{background:#fff0f0;color:#c0333a}
+  .card.overview .date{color:#2b2b2b}
+
+  .card.tech .bar{background:var(--c-tech)}
+  .card.tech .sec-title{color:var(--c-tech)}
+  .card.tech .item{border-left-color:var(--c-tech)}
+  .card.tech .num{background:var(--c-tech)}
+
+  .card.finance .bar{background:var(--c-finance)}
+  .card.finance .sec-title{color:var(--c-finance)}
+  .card.finance .item{border-left-color:var(--c-finance)}
+  .card.finance .num{background:var(--c-finance)}
+
+  .card.human .bar{background:var(--c-human)}
+  .card.human .sec-title{color:var(--c-human)}
+  .card.human .item{border-left-color:var(--c-human)}
+  .card.human .num{background:var(--c-human)}
+
+  /* 页脚 */
+  .foot{
+    text-align:center;color:#9aa0ad;font-size:12px;line-height:1.9;
+    padding:8px 12px 28px;
+  }
+  .foot .warn{color:#c08a4a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== 卡片一：总览 ===== -->
+  <section class="card overview">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-overview)">
+      <div class="kicker">AI NEWS DAILY · 抖音短视频脚本</div>
+      <div class="date">2026年6月22日 · 星期一</div>
+      <div class="lede">这一周，AI界经历了"最强模型被封杀、Transformer之父跳槽、GPT-5.6被泄露、G7联手定安全底线"四连炸——你以为AI还只是技术圈的事？实际上它同时变成了地缘博弈、金融震荡和你的饭碗问题。</div>
+    </div>
+    <div class="pad">
+      <div class="trend">
+        过去这一周，AI圈的四条叙事线同时炸开。<br><br>
+        <b>科技线：Fable 5禁令全貌浮出水面。</b>SK Telecom触发、Amazon助推，白宫以出口管制为由要求全球封禁，更戏剧性的是——白宫要求"零越狱"才允许恢复访问，但安全社区说这事技术上不可能。同一周，Transformer之父Noam Shazeer以27亿美元身价离开Google加盟OpenAI，Altman称"等了十年"。GPT-5.6也被开发者从后台日志里"抓了个现行"，150万Token上下文窗口泄露。<br><br>
+        <b>政策&产业线：</b>G7领导人峰会上，Sam Altman、Dario Amodei等十几家AI实验室负责人与元首同席，敲定AI安全自愿承诺——不具法律约束力，但可能成为全球事实底线。中国这边，科创50端午前单日成交2137亿，盘中一度冲5%。<br><br>
+        <b>股市线：</b>端午假期休市三天（6月19-21日），6月22日周一开盘。AI抱团瓦解声音渐起，但政策底牌已经亮出——科创板第五套标准正式扩至AI大模型，智谱亏47亿拿到IPO钥匙。ChatGPT市占率首次跌破50%，多极格局正式形成。<br><br>
+        <b>人文线：</b>TrueUp数据触目惊心——今年科技行业已裁超15万人，日均916人，比去年快44%。"蒸馏员工"事件（被裁员工数据被用来训练替代自己的AI分身）引发全球伦理地震。同时全国首批AI教育本科专业设立，AI伦理师月薪2.4万起——"会AI的人"和"被AI替的人"之间的裂谷正在加速扩大。<br><br>
+        <b>这周只说明一件事：AI已不再是"技术话题"，而是"地缘博弈+资本赛道+职业命运"三位一体的新现实。你对AI的站位，正在被它重新定义。</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片二：科技 ===== -->
+  <section class="card tech">
+    <div class="bar"></div>
+    <div class="pad" style="background:var(--bg-tech)">
+      <div class="sec-head">
+        <span class="sec-emoji">🔬</span> <span class="sec-title">科技前沿 · 三条必看</span>
+        <div class="sec-sub">SCIENCE & TECH</div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">Fable 5全球禁令全貌浮出水面：白宫要求"零越狱"，安全社区称不可能<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为Fable 5被禁只是因为太强？<b>实际上背后是SK Telecom触发、Amazon助推，而白宫要求的"零越狱"恢复条件，AI安全社区说技术上根本做不到。</b></div>
+            <div class="i-desc">《WIRED》和《华盛顿邮报》联合还原了Fable 5禁令完整链条：第一步，白宫认定SK Telecom（韩国最大运营商，Anthropic投资方和Mythos 5合作伙伴）与中国存在联系；第二步，Amazon研究人员独立发现漏洞后报告白宫。6月12日下午，出口管制信函送达，要求撤销所有外国公民访问权限。现在的僵局是：白宫要求Anthropic主动测试并消除所有越狱漏洞才准恢复，但安全社区一致认为这对前沿AI模型目前技术上不可能。Anthropic首尔办公室高管最新表态"非常有信心未来几天内恢复"。</div>
+            <div class="i-src">[WIRED / 华盛顿邮报 / 头条综合] <a href="http://m.toutiao.com/group/7653895726191084059/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">Transformer之父Noam Shazeer跳槽OpenAI，27亿美元人才战刷新纪录<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为人才跳槽只是个HR新闻？<b>实际上Shazeer一个人的跳槽，背后是Google花了27亿美元只买到他22个月的工作，AI顶尖人才已变成"金融级资产"。</b></div>
+            <div class="i-desc">2026年6月18日午夜，Transformer架构联合作者、MoE和Multi-Query Attention发明者Noam Shazeer宣布离开Google加入OpenAI。背景更炸裂：2024年8月Google以约27亿美元把他从Character.AI"请回来"，不到22个月他就走了——相当于Google每月支付1.22亿美金。Sam Altman称"从OpenAI创立就想合作他，等了十年"。Shazeer将在OpenAI担任"架构研究负责人"，直接设计下一代模型神经网络结构。Google内部被形容为"shell-shocked"。</div>
+            <div class="i-src">[Build Fast with AI / 头条综合] <a href="http://m.toutiao.com/group/7653895726191084059/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">GPT-5.6被泄露：150万Token上下文窗口，OpenAI考虑大降价<span class="tag tag-single">单方信源</span></div>
+            <div class="i-hook">你以为GPT-5.6只是个常规升级？<b>实际上它还没发布就被开发者在后台日志里逮到了——150万Token，比5.5还多43%，而且OpenAI正在考虑大幅降价。</b></div>
+            <div class="i-desc">科技媒体testingcatalog报道，多名开发者在OpenAI Codex后端日志中发现代号"iris-alpha"的神秘模型，基本锁定是GPT-5.6。最大亮点：上下文窗口传闻达150万Token（约150万字），比GPT-5.5的100万Token又提升43%，可一口气消化整部《三体》三部曲+全套项目代码。同时多模态全面升级，首次展现"实时多模态推理"。更让竞品紧张的是，OpenAI正在考虑大幅降低token定价——Anthropic估值已达9650亿美元首次超过OpenAI的8520亿美元，价格战一触即发。预计6月23日左右发布。</div>
+            <div class="i-src">[testingcatalog / IT之家 / 头条综合] <a href="http://m.toutiao.com/group/7653649422105985582/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片三：财经 ===== -->
+  <section class="card finance">
+    <div class="bar"></div>
+    <div class="pad" style="background:var(--bg-finance)">
+      <div class="sec-head">
+        <span class="sec-emoji">📈</span> <span class="sec-title">财经股市 · 三条必看</span>
+        <div class="sec-sub">FINANCE & MARKETS</div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">科创板第五套标准正式扩至AI大模型，智谱亏47亿拿到IPO钥匙<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为亏几十亿的AI公司上不了市？<b>实际上6月17日证监会改规则当天，智谱IPO辅导状态就变更为"辅导验收"——全年亏47亿也要上。</b></div>
+            <div class="i-desc">6月17日证监会主席吴清在陆家嘴论坛宣布，科创板第五套上市标准正式扩至AI大模型、量子科技、具身智能等领域。核心条件改为"市值达标+核心产品已上线并规模化应用"，不要求盈利。上交所同日发布第10号审核指引。智谱（2025年收入7.24亿、净亏47.18亿）计划募资不超过150亿，IPO辅导状态已变更为"辅导验收"；MiniMax等模型公司回A通道也一并打开。定价逻辑正式从"看利润"切换为"看技术壁垒+生态位"。</div>
+            <div class="i-src">[证监会 / 上交所 / 头条综合] <a href="http://m.toutiao.com/group/7653708725554840073/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">科创50端午前单日飙5%，6月22日开盘AI赛道面临大分化<span class="tag tag-multi">多方信源</span></div>
+            <div class="i-hook">你以为端午休市三天后AI股还能继续疯？<b>实际上6月22日开盘，AI赛道内部将出现明显的强弱分层——质地普通的纯炒作个股要跌。</b></div>
+            <div class="i-desc">端午假期前（6月18日），科创50单日成交干到2137亿，盘中一度冲到5.02%，硬生生在上证4100点横盘三天的死水中撕开一道口子。但假期后开盘，多重利空叠加：外围波动、资金收紧、半年末考核，AI抱团瓦解声音渐起。市场分析认为，陆家嘴论坛政策红利中报业绩两大变量落地后，AI赛道内部分化将极为剧烈——纯靠情绪炒作的个股将大幅回调，而真正有技术壁垒和政策底牌的公司继续受追捧。ChatGPT市占率首次跌破50%的消息同样扰动全球AI股价格局，Anthropic估值9650亿美元首次超越OpenAI。</div>
+            <div class="i-src">[东方财富 / 头条收盘总结 / 综合] <a href="http://m.toutiao.com/group/7653684045779419657/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">G7 AI安全承诺出炉：自愿无约束力，但可能成为全球底线<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为G7的AI承诺只是随便签个字？<b>实际上Altman、Amodei、Hassabis等十几位AI掌门人跟七国元首同桌谈出来的规则，虽然不具法律约束力，但可能成为全球AI治理的事实基准。</b></div>
+            <div class="i-desc">6月17日G7峰会在法国埃维昂举行特殊工作午餐，Sam Altman、Dario Amodei、Demis Hassabis等约十几家AI实验室负责人与G7领导人同桌，达成AI安全自愿承诺。核心议题：未成年人网络安全保护、前沿模型在网络安全和生物领域的风险管控。基于2023年广岛AI进程，包括面向未成年人的"安全设计"原则、年龄适配模型行为、内容水印。不具法律约束力正是争议点，但这批实验室服务全球绝大部分市场，自愿承诺极可能成为事实上的全球合规基线。同时中国公布五年期2950亿美元的AI基建计划——G7"软治理"与中国"硬基建"形成鲜明对比。</div>
+            <div class="i-src">[Asanify / Build Fast with AI / 头条综合] <a href="http://m.toutiao.com/group/7653895726191084059/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片四：人文 ===== -->
+  <section class="card human">
+    <div class="bar"></div>
+    <div class="pad" style="background:var(--bg-human)">
+      <div class="sec-head">
+        <span class="sec-emoji">👥</span> <span class="sec-title">人文社会 · 三条必看</span>
+        <div class="sec-sub">SOCIETY & CULTURE</div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">科技裁员突破15万，日均916人，比去年快44%<span class="tag tag-proven">已证实</span></div>
+            <div class="i-hook">你以为AI带来的是新增就业？<b>实际上TrueUp数据显示今年科技行业已389轮裁员裁掉151,998人，日均916人——平均每94秒就有一个人因AI失去工作。</b></div>
+            <div class="i-desc">科技招聘平台TrueUp裁员追踪器显示：截至2026年6月18日，今年以来科技行业389轮裁员，151,998人失业，日均916人，比2025年同期快了44%。TrueUp预计全年科技裁员可能达37万人，直逼2023年43万人的历史纪录。而这背后的推手已不再只是"降本增效"——GitLab宣布裁员14%的同一天，它的第一季度营收同比增长了23%。更恐怖的信号是：一家增长中的公司也会因为"AI原生工作流"而主动削肉。GitLab CEO明确称这是面向"智能代理时代"的战略重塑。</div>
+            <div class="i-src">[TrueUp / 头条综合] <a href="http://m.toutiao.com/group/7652987747552035338/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">AI就业"K型分化"：基础岗缩20%，AI伦理师月薪2.4万起<span class="tag tag-multi">多方信源</span></div>
+            <div class="i-hook">你以为AI就业市场一边倒的差？<b>实际上惨的人被AI替代，香的人被AI抬价——AI伦理师月薪已破2.4万，部分企业50万年薪抢人，中间地带被彻底掏空。</b></div>
+            <div class="i-desc">一面是基础文案、初级设计、数据录入岗位同比缩减约两成，2026年1270万毕业生涌入就业市场，"一人干三人活"成为标配。另一面，人社部紧急公示17个新职业，AI伦理师、碳资产管理员等岗位月薪突破2.4万元，部分企业开50万年薪抢人。全国AI产业人才缺口超500万，岗位需求同比增543%。全国首批AI教育本科专业已设立（如首师大2026年新增），企业端的AI人才战争则刷新了纪录——Noam Shazeer一个人的跳槽背后是27亿美元的人才对价。本质是"K型分化"：向上走需要"AI+行业"复合能力，向下的人被重复劳动抛弃，中间的"差不多"地带正被急速抽空。</div>
+            <div class="i-src">[人社部 / 智联招聘 / 网易 / 头条综合] <a href="http://m.toutiao.com/group/7651556694308307482/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">"蒸馏员工"伦理地震：上午被裁、下午AI分身继续上班<span class="tag tag-multi">多方信源</span></div>
+            <div class="i-hook">你以为裁员就是人走了活没人干？<b>实际上有人上午收到裁员通知，下午他的AI分身就在公司群里继续工作了——技术圈管这叫"蒸馏员工"。</b></div>
+            <div class="i-desc">2026年最炸裂的AI伦理事件：某公司员工被裁后，企业用他过去的工作数据训练AI数字分身，实现"上午裁人、下午AI上岗"。技术社区称这一过程为"炼化"或"蒸馏员工"。国会山已开始关注，律师们摩拳擦掌——用员工数据生成替代他自己的AI，这到底合不合法？与此同时，人社部5月发布《稳岗扩容提质行动方案》，要求企业部署AI时必须配套转岗培训。而全国首批AI教育本科专业的设立，1270万毕业生的就业压力，以及AI伦理师月薪破2.4万的冰火两重天，共同构成了2026年6月最真实的AI社会图景。</div>
+            <div class="i-src">[头条综合] <a href="http://m.toutiao.com/group/7636343703501668918/" target="_blank">查看原文</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    📅 数据采集窗口：2026年6月18日 - 6月22日<br>
+    🤖 本报由AI辅助生成，内容经多源交叉验证<br>
+    <span class="warn">⚠️ 财经内容不构成投资建议</span>
+  </div>
+
+</div>
+</body>
+</html>
