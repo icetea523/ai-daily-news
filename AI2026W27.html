@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & 机器人周报 · 2026 W27 (6/29-7/5)</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --c-overview:#ff4d4f; --bg-overview:#f8f8fa;
+    --c-tech:#3a78ff;     --bg-tech:#f2f7ff;
+    --c-finance:#ff8c3c;  --bg-finance:#fff7f0;
+    --c-human:#9664c8;    --bg-human:#f5f2fa;
+    --c-data:#0fb5a8;     --bg-data:#e8faf7;
+  }
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+    background:#e9ecf3;color:#1f2430;line-height:1.7;
+    padding:24px 12px;
+  }
+  .wrap{max-width:520px;margin:0 auto}
+
+  /* 卡片 */
+  .card{
+    width:100%;margin:0 auto 22px;border-radius:22px;overflow:hidden;
+    background:#fff;box-shadow:0 10px 34px rgba(20,30,60,.10);
+  }
+  .bar{height:10px;width:100%}
+  .pad{padding:24px 22px 26px}
+
+  /* 顶部标题区 */
+  .hero{padding:30px 22px 22px}
+  .kicker{font-size:13px;letter-spacing:2px;color:#9aa0ad;margin-bottom:8px}
+  .date{font-size:30px;font-weight:800;line-height:1.25;letter-spacing:.5px}
+  .lede{
+    margin-top:14px;padding:14px 16px;border-radius:14px;
+    font-size:15.5px;font-weight:600;line-height:1.6;
+  }
+  .trend{margin-top:16px;font-size:14.5px;color:#3a3f4d;line-height:1.85}
+  .trend b{color:#1a1f2b}
+
+  /* 领域标题 */
+  .sec-head{margin-bottom:16px}
+  .sec-emoji{font-size:26px;vertical-align:-3px}
+  .sec-title{font-size:21px;font-weight:800;margin-bottom:4px}
+  .sec-sub{font-size:12.5px;color:#9aa0ad;letter-spacing:1px}
+
+  /* 新闻条目 */
+  .item{
+    position:relative;padding:16px 16px 16px 14px;margin-bottom:14px;
+    border-radius:16px;background:#f7f8fc;border-left:5px solid var(--c-tech,#3a78ff);
+  }
+  .item:last-child{margin-bottom:0}
+  .item .row{display:flex;align-items:flex-start;gap:12px}
+  .num{
+    flex:0 0 30px;height:30px;border-radius:50%;color:#fff;
+    font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .body{flex:1;min-width:0}
+  .tag{
+    display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;
+    border-radius:20px;margin-left:6px;vertical-align:2px;
+  }
+  .tag-proven{background:#e6f7ed;color:#1f9d55}
+  .tag-multi{background:#eef4ff;color:#2c6cd6}
+  .tag-single{background:#fff4e6;color:#cc6b00}
+  .i-title{font-size:15.5px;font-weight:700;line-height:1.45}
+  .i-hook{font-size:13.5px;color:#6b7180;margin-top:8px;font-weight:600}
+  .i-hook b{font-weight:800}
+  .i-desc{font-size:14px;color:#4a505d;margin-top:8px;line-height:1.72}
+  .i-src{display:inline-block;margin-top:10px;font-size:12.5px;color:#8890a0}
+  .i-src a{color:inherit;text-decoration:none;border-bottom:1px dashed #b9c0cd}
+
+  /* 数据可视化 */
+  .databox{margin:14px 0;padding:16px;border-radius:14px;background:#fafbfd}
+  .databox h4{font-size:14px;color:#1a1f2b;margin-bottom:10px;font-weight:700}
+  .bar-row{display:flex;align-items:center;margin:6px 0;font-size:12.5px;gap:8px}
+  .bar-label{flex:0 0 90px;color:#3a3f4d}
+  .bar-track{flex:1;background:#eaeef5;border-radius:6px;height:14px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;color:#fff;font-size:10.5px;font-weight:700}
+  .bar-fill.t1{background:linear-gradient(90deg,#3a78ff,#5b8eff)}
+  .bar-fill.t2{background:linear-gradient(90deg,#ff8c3c,#ffa766)}
+  .bar-fill.t3{background:linear-gradient(90deg,#0fb5a8,#3fc9be)}
+  .bar-fill.t4{background:linear-gradient(90deg,#9664c8,#b388d6)}
+  .bar-fill.t5{background:linear-gradient(90deg,#ff4d4f,#ff7375)}
+
+  /* 链接按钮 */
+  .linkbtn{
+    display:block;text-align:center;margin:18px 0 4px;padding:14px 18px;
+    background:linear-gradient(135deg,#3a78ff,#5b8eff);color:#fff;
+    border-radius:14px;text-decoration:none;font-weight:700;font-size:15px;
+    box-shadow:0 4px 14px rgba(58,120,255,.25);
+  }
+  .linkbtn .sub{display:block;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.85);margin-top:3px;letter-spacing:.5px}
+
+  /* 各领域配色 */
+  .card.overview .bar{background:var(--c-overview)}
+  .card.overview .lede{background:#fff0f0;color:#c0333a}
+  .card.overview .date{color:#2b2b2b}
+
+  .card.tech .bar{background:var(--c-tech)}
+  .card.tech .sec-title{color:var(--c-tech)}
+  .card.tech .item{border-left-color:var(--c-tech)}
+  .card.tech .num{background:var(--c-tech)}
+
+  .card.finance .bar{background:var(--c-finance)}
+  .card.finance .sec-title{color:var(--c-finance)}
+  .card.finance .item{border-left-color:var(--c-finance)}
+  .card.finance .num{background:var(--c-finance)}
+
+  .card.human .bar{background:var(--c-human)}
+  .card.human .sec-title{color:var(--c-human)}
+  .card.human .item{border-left-color:var(--c-human)}
+  .card.human .num{background:var(--c-human)}
+
+  .card.data .bar{background:var(--c-data)}
+  .card.data .sec-title{color:var(--c-data)}
+  .card.data .item{border-left-color:var(--c-data)}
+  .card.data .num{background:var(--c-data)}
+
+  /* 页脚 */
+  .foot{
+    text-align:center;color:#9aa0ad;font-size:12px;line-height:1.9;
+    padding:8px 12px 28px;
+  }
+  .foot .warn{color:#c08a4a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== 卡片一：总览 ===== -->
+  <section class="card overview">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-overview)">
+      <div class="kicker">AI & ROBOTICS WEEKLY · W27</div>
+      <div class="date">2026 W27 · 6/29-7/5</div>
+      <div class="lede">这一周，OpenAI GPT-5.6 在美商务部审计后放行、Anthropic Claude Sonnet 5 全量免费、中国大模型周调用量首次反超全球 50%——AI 的"三极格局"正式成型。</div>
+    </div>
+    <div class="pad">
+      <div class="trend">
+        过去这一周，AI 行业最值得记住的四条主线同时炸开。<br><br>
+        <b>科技线：模型能力进入"安全审查"模式。</b>GPT-5.6 系列（Sol/Terra/Luna 三档）因网络安全能力过强，被美商务部以"先审计再放行"的方式卡了 11 天，7 月 8 日正式放行，Sol 在 Terminal-Bench 2.1 编程基准达到 88.8%。同日，Anthropic Claude Sonnet 5 成 Free/Pro 默认模型，1M Token 上下文窗口 + Agent 能力大升级，Claude Tag 永久嵌入企业 Slack。<br><br>
+        <b>产业&地缘线：</b>xAI 以 600 亿美元股票收购 Cursor 母公司 Anysphere；Anthropic 自研 AI 芯片并与三星洽谈 2nm 工艺；韩国政府宣布 5760 亿美元 AI 投资计划。同时阿里 7 月 10 日起禁用 Claude Code 转用 Qoder，导火索是 Anthropic 4 月起植入"隐蔽时区追踪"被反向指为"史上最大蒸馏攻击"。<br><br>
+        <b>数据&资本线：</b>中国大模型周调用量 23.45 万亿词元，环比 +15.01%，连续 6 周增长，全球占比首次突破 50%。上半年 257 家企业完成 2 笔以上融资，104 家累计融资超 10 亿——阶跃星辰 222 亿、月之暗面 184 亿、DeepSeek 70 亿美元、Together AI 8 亿美元（C 轮估值 83 亿）。<br><br>
+        <b>机器人线：</b>2026 上半年机器人规上企业营收破 900 亿（+26.9%），自主品牌工业机器人国内市占率超 50%，具身智能公司半年 5 轮融资成常态。<br><br>
+        <b>这周只说明一件事：AI 已经不是"哪个国家领先"的问题，而是"中美欧三极 + 韩国入局 + 阿联酋/沙特卡位"的多极赛跑。</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片二：科技 ===== -->
+  <section class="card tech">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-tech)">
+      <div class="sec-head">
+        <div class="sec-emoji">🔬</div>
+        <div class="sec-title">科技 · 模型与基础设施</div>
+        <div class="sec-sub">TECH · MODEL & INFRA</div>
+      </div>
+    </div>
+    <div class="pad">
+
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">OpenAI GPT-5.6 全量上线 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">6/27 预览 → 7/9 全量开放，Sol 编程基准 <b>88.8%</b></div>
+            <div class="i-desc">分 Sol（旗舰）/ Terra（均衡）/ Luna（快速廉价）三档。Sol Ultra 子智能体模式 Terminal-Bench 2.1 达 91.9%。因网络安全能力过强被美商务部审计 11 天后于 7/8 正式放行。</div>
+            <div class="i-src">来源：<a href="https://36kr.com/p/3886609637847044">36kr</a> · <a href="http://m.toutiao.com/group/7660284187202667008/">今日头条</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">Anthropic Claude Sonnet 5 全量默认 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook"><b>1M Token</b> 上下文 + Agent 能力升级，API $2/$10 per M</div>
+            <div class="i-desc">6/30 起对所有 Free/Pro 用户开放，优惠价延续至 8/31。Claude Tag 永久嵌入企业 Slack，跨频道访问有架构级硬边界。Anthropic 同时启动自研 AI 芯片，与三星洽谈 2nm 工艺。</div>
+            <div class="i-src">来源：<a href="https://writingmate.ai/blog/ai-news-week-of-2026-07-07">writingmate.ai</a> · <a href="https://juejin.cn/post/7658290915859087370">掘金</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">xAI 600 亿美元收购 Anysphere（Cursor）<span class="tag tag-single">🟡 中</span></div>
+            <div class="i-hook">SpaceX xAI 部门以 <b>600 亿美元股票</b>收购 Cursor 母公司</div>
+            <div class="i-desc">AI 编程工具赛道最大并购。Cursor 此前估值约 100 亿美元，溢价显著。整合后 Cursor IDE 将与 Grok 系列模型深度绑定，对 GitHub Copilot 形成正面冲击。</div>
+            <div class="i-src">来源：<a href="https://juejin.cn/post/7658290915859087370">掘金</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">4</div>
+          <div class="body">
+            <div class="i-title">阿里禁用 Claude Code 改用 Qoder <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">7/10 起全集团切换，导火索是 <b>时区追踪代码</b>事件</div>
+            <div class="i-desc">Anthropic Claude Code 自 4 月起植入"隐蔽追踪代码"检测 Asia/Shanghai、Asia/Urumqi 时区。Anthropic 反向指控阿里发起"史上最大蒸馏攻击"。国内大厂 + 美西 AI 实验室的关系正式进入对抗期。</div>
+            <div class="i-src">来源：<a href="https://writingmate.ai/blog/ai-news-week-of-2026-07-07">writingmate.ai</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">5</div>
+          <div class="body">
+            <div class="i-title">韩国 5760 亿美元 AI 投资计划 <span class="tag tag-single">🟡 中</span></div>
+            <div class="i-hook">"韩版星际之门"——政府牵头，<b>5760 亿美元</b>规模</div>
+            <div class="i-desc">韩国政府正式宣布 AI 投资计划，覆盖芯片、数据中心、模型训练、人才教育全链条。配合三星、SK 海力士的存储 + HBM 优势，目标直追中美第一梯队。</div>
+            <div class="i-src">来源：<a href="https://juejin.cn/post/7658290915859087370">掘金</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 卡片三：财经 ===== -->
+  <section class="card finance">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-finance)">
+      <div class="sec-head">
+        <div class="sec-emoji">💰</div>
+        <div class="sec-title">财经 · 投融资与产业</div>
+        <div class="sec-sub">FINANCE · FUNDING & INDUSTRY</div>
+      </div>
+    </div>
+    <div class="pad">
+
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">Together AI 8 亿美元 C 轮，估值 83 亿 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">Aramco Ventures 领投，年化预订额 <b>11.5 亿美元</b></div>
+            <div class="i-desc">7/1 宣布。本轮是开源 / 性价比大模型推理赛道最大单笔融资之一。Together AI 主打开源 LLM 推理 + 微调 + 训练一体化平台。</div>
+            <div class="i-src">来源：<a href="https://writingmate.ai/blog/ai-news-week-of-2026-07-07">writingmate.ai</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">国内上半年 AI 融资 257 家、104 家过 10 亿 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">完成 2 笔以上融资企业数同比 <b>+164.9%</b></div>
+            <div class="i-desc">阶跃星辰累计 222.14 亿、月之暗面 183.73 亿、DeepSeek 70 亿美元。104 家企业累计融资超 10 亿（2025 同期仅 28 家）。中国 AI 创业公司进入"烧钱换规模"阶段。</div>
+            <div class="i-src">来源：<a href="http://m.toutiao.com/group/7659998345691251246/">今日头条</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">北京大模型备案 254 款居全国第一 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">全球数字经济大会 7/5 北京收官，<b>6000+ 嘉宾、3000+ 企业</b></div>
+            <div class="i-desc">北京亦庄"词元工厂"日产能 1.4 万亿词元。"杨梅工业"平台已生产 1200+ 智能体。国家级数据要素底座、央国企数智创新联合实验室首次亮相。</div>
+            <div class="i-src">来源：<a href="http://m.toutiao.com/group/7660188433641505326/">今日头条</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 卡片四：数据 ===== -->
+  <section class="card data">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-data)">
+      <div class="sec-head">
+        <div class="sec-emoji">📊</div>
+        <div class="sec-title">数据 · 关键指标</div>
+        <div class="sec-sub">DATA · KEY METRICS</div>
+      </div>
+    </div>
+    <div class="pad">
+
+      <div class="databox">
+        <h4>🇨🇳 中国大模型周调用量连续 6 周增长</h4>
+        <div class="bar-row">
+          <div class="bar-label">6/8-6/14</div>
+          <div class="bar-track"><div class="bar-fill t1" style="width:55%">12.5T</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">6/15-6/21</div>
+          <div class="bar-track"><div class="bar-fill t1" style="width:65%">15.2T</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">6/22-6/28</div>
+          <div class="bar-track"><div class="bar-fill t1" style="width:80%">20.4T</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label" style="color:#1a1f2b;font-weight:700">6/29-7/5</div>
+          <div class="bar-track"><div class="bar-fill t1" style="width:96%">23.45T (+15%)</div></div>
+        </div>
+      </div>
+
+      <div class="databox">
+        <h4>🏆 2026 上半年国内 AI 融资 Top 榜（亿元人民币）</h4>
+        <div class="bar-row">
+          <div class="bar-label">阶跃星辰</div>
+          <div class="bar-track"><div class="bar-fill t2" style="width:100%">222.14</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">月之暗面</div>
+          <div class="bar-track"><div class="bar-fill t2" style="width:83%">183.73</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">DeepSeek</div>
+          <div class="bar-track"><div class="bar-fill t2" style="width:32%">≈70 (USD)</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Together AI</div>
+          <div class="bar-track"><div class="bar-fill t3" style="width:12%">8 (USD)</div></div>
+        </div>
+      </div>
+
+      <div class="databox">
+        <h4>🤖 2026 H1 机器人产业关键指标</h4>
+        <div class="bar-row">
+          <div class="bar-label">规上企业营收</div>
+          <div class="bar-track"><div class="bar-fill t4" style="width:90%">900+ 亿 (+26.9%)</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">工业机器人国产化</div>
+          <div class="bar-track"><div class="bar-fill t4" style="width:50%">50%+</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">自变量机器人融资</div>
+          <div class="bar-track"><div class="bar-fill t5" style="width:42%">5 轮 / 半年</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">具微科技融资</div>
+          <div class="bar-track"><div class="bar-fill t5" style="width:42%">5 轮 / 半年</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 卡片五：人文 + 机器人 ===== -->
+  <section class="card human">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-human)">
+      <div class="sec-head">
+        <div class="sec-emoji">🤖</div>
+        <div class="sec-title">机器人 · 产业进展</div>
+        <div class="sec-sub">ROBOTICS · INDUSTRY UPDATE</div>
+      </div>
+    </div>
+    <div class="pad">
+
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">规上企业营收破 900 亿（+26.9%）<span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">2026 上半年数据，<b>26.9%</b> 同比增长</div>
+            <div class="i-desc">自主品牌工业机器人国内市占率超 50%，首次反超外资品牌。人形机器人量产进入小批量阶段。</div>
+            <div class="i-src">来源：<a href="http://m.toutiao.com/group/7660182496050512411/">今日头条</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">具身智能半年 5 轮融资成常态 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">自变量机器人、具微科技 <b>各 5 轮</b></div>
+            <div class="i-desc">具身智能赛道进入"高密度融资"阶段，每家公司平均 2-3 个月一轮，反映资本对"AI + 物理世界"赛道的强烈押注。</div>
+            <div class="i-src">来源：<a href="http://m.toutiao.com/group/7659998345691251246/">今日头条</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 卡片六：本周时间线 + 链接 ===== -->
+  <section class="card tech">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-tech)">
+      <div class="sec-head">
+        <div class="sec-emoji">📅</div>
+        <div class="sec-title">本周时间线</div>
+        <div class="sec-sub">WEEKLY TIMELINE</div>
+      </div>
+    </div>
+    <div class="pad">
+
+      <div class="item">
+        <div class="row">
+          <div class="num">6/27</div>
+          <div class="body">
+            <div class="i-title">OpenAI GPT-5.6 有限预览发布</div>
+            <div class="i-desc">分 Sol/Terra/Luna 三档。Sol 编程基准 88.8%，因网络安全能力过强被美商务部要求审计。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">6/29</div>
+          <div class="body">
+            <div class="i-title">中国大模型周调用量登顶全球</div>
+            <div class="i-desc">23.45 万亿词元，环比 +15.01%，全球占比首次突破 50%。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">6/30</div>
+          <div class="body">
+            <div class="i-title">Claude Sonnet 5 成默认模型</div>
+            <div class="i-desc">1M Token 上下文，API $2/$10 per M，优惠至 8/31。Claude Tag 嵌入 Slack。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">7/01</div>
+          <div class="body">
+            <div class="i-title">Together AI 8 亿美元 C 轮</div>
+            <div class="i-desc">Aramco Ventures 领投，估值 83 亿美元，年化预订额 11.5 亿。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row">
+          <div class="num">7/05</div>
+          <div class="body">
+            <div class="i-title">全球数字经济大会北京收官</div>
+            <div class="i-desc">6000+ 嘉宾、3000+ 企业，北京备案大模型 254 款居全国第一。"词元工厂"日产能 1.4 万亿。</div>
+          </div>
+        </div>
+      </div>
+
+      <a class="linkbtn" href="https://icetea523.github.io/ai-daily-news/" target="_blank" rel="noopener">
+        🌐 GitHub Pages 在线查看
+        <span class="sub">icetea523.github.io/ai-daily-news</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="foot">
+    <div>📌 本周报基于公开来源整理，事件可信度见标签</div>
+    <div>数据来源：36kr / 今日头条 / writingmate.ai / 掘金 / OpenRouter</div>
+    <div class="warn">⚠️ 部分事件（xAI/Anysphere 并购、韩国 5760 亿）为单源未交叉验证</div>
+    <div style="margin-top:8px">— 阿海 出品 · 2026 W27 —</div>
+  </div>
+
+</div>
+</body>
+</html>
