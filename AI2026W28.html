@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & 机器人周报 · 2026 W28 (7/6-7/12)</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --c-overview:#ff4d4f; --bg-overview:#f8f8fa;
+    --c-tech:#3a78ff;     --bg-tech:#f2f7ff;
+    --c-finance:#ff8c3c;  --bg-finance:#fff7f0;
+    --c-human:#9664c8;    --bg-human:#f5f2fa;
+    --c-data:#0fb5a8;     --bg-data:#e8faf7;
+  }
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+    background:#e9ecf3;color:#1f2430;line-height:1.7;
+    padding:24px 12px;
+  }
+  .wrap{max-width:520px;margin:0 auto}
+  .card{
+    width:100%;margin:0 auto 22px;border-radius:22px;overflow:hidden;
+    background:#fff;box-shadow:0 10px 34px rgba(20,30,60,.10);
+  }
+  .bar{height:10px;width:100%}
+  .pad{padding:24px 22px 26px}
+  .hero{padding:30px 22px 22px}
+  .kicker{font-size:13px;letter-spacing:2px;color:#9aa0ad;margin-bottom:8px}
+  .date{font-size:30px;font-weight:800;line-height:1.25;letter-spacing:.5px}
+  .lede{
+    margin-top:14px;padding:14px 16px;border-radius:14px;
+    font-size:15.5px;font-weight:600;line-height:1.6;
+  }
+  .trend{margin-top:16px;font-size:14.5px;color:#3a3f4d;line-height:1.85}
+  .trend b{color:#1a1f2b}
+  .sec-head{margin-bottom:16px}
+  .sec-emoji{font-size:26px;vertical-align:-3px}
+  .sec-title{font-size:21px;font-weight:800;margin-bottom:4px}
+  .sec-sub{font-size:12.5px;color:#9aa0ad;letter-spacing:1px}
+  .item{
+    position:relative;padding:16px 16px 16px 14px;margin-bottom:14px;
+    border-radius:16px;background:#f7f8fc;border-left:5px solid var(--c-tech,#3a78ff);
+  }
+  .item:last-child{margin-bottom:0}
+  .item .row{display:flex;align-items:flex-start;gap:12px}
+  .num{
+    flex:0 0 30px;height:30px;border-radius:50%;color:#fff;
+    font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  }
+  .body{flex:1;min-width:0}
+  .tag{
+    display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;
+    border-radius:20px;margin-left:6px;vertical-align:2px;
+  }
+  .tag-proven{background:#e6f7ed;color:#1f9d55}
+  .tag-multi{background:#eef4ff;color:#2c6cd6}
+  .tag-single{background:#fff4e6;color:#cc6b00}
+  .i-title{font-size:15.5px;font-weight:700;line-height:1.45}
+  .i-hook{font-size:13.5px;color:#6b7180;margin-top:8px;font-weight:600}
+  .i-hook b{font-weight:800}
+  .i-desc{font-size:14px;color:#4a505d;margin-top:8px;line-height:1.72}
+  .i-src{display:inline-block;margin-top:10px;font-size:12.5px;color:#8890a0}
+  .i-src a{color:inherit;text-decoration:none;border-bottom:1px dashed #b9c0cd}
+  .databox{margin:14px 0;padding:16px;border-radius:14px;background:#fafbfd}
+  .databox h4{font-size:14px;color:#1a1f2b;margin-bottom:10px;font-weight:700}
+  .bar-row{display:flex;align-items:center;margin:6px 0;font-size:12.5px;gap:8px}
+  .bar-label{flex:0 0 90px;color:#3a3f4d}
+  .bar-track{flex:1;background:#eaeef5;border-radius:6px;height:14px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;color:#fff;font-size:10.5px;font-weight:700}
+  .bar-fill.t1{background:linear-gradient(90deg,#3a78ff,#5b8eff)}
+  .bar-fill.t2{background:linear-gradient(90deg,#ff8c3c,#ffa766)}
+  .bar-fill.t3{background:linear-gradient(90deg,#0fb5a8,#3fc9be)}
+  .bar-fill.t4{background:linear-gradient(90deg,#9664c8,#b388d6)}
+  .bar-fill.t5{background:linear-gradient(90deg,#ff4d4f,#ff7375)}
+  .linkbtn{
+    display:block;text-align:center;margin:18px 0 4px;padding:14px 18px;
+    background:linear-gradient(135deg,#3a78ff,#5b8eff);color:#fff;
+    border-radius:14px;text-decoration:none;font-weight:700;font-size:15px;
+    box-shadow:0 4px 14px rgba(58,120,255,.25);
+  }
+  .linkbtn .sub{display:block;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.85);margin-top:3px;letter-spacing:.5px}
+  .card.overview .bar{background:var(--c-overview)}
+  .card.overview .lede{background:#fff0f0;color:#c0333a}
+  .card.overview .date{color:#2b2b2b}
+  .card.tech .bar{background:var(--c-tech)}
+  .card.tech .sec-title{color:var(--c-tech)}
+  .card.tech .item{border-left-color:var(--c-tech)}
+  .card.tech .num{background:var(--c-tech)}
+  .card.finance .bar{background:var(--c-finance)}
+  .card.finance .sec-title{color:var(--c-finance)}
+  .card.finance .item{border-left-color:var(--c-finance)}
+  .card.finance .num{background:var(--c-finance)}
+  .card.human .bar{background:var(--c-human)}
+  .card.human .sec-title{color:var(--c-human)}
+  .card.human .item{border-left-color:var(--c-human)}
+  .card.human .num{background:var(--c-human)}
+  .card.data .bar{background:var(--c-data)}
+  .card.data .sec-title{color:var(--c-data)}
+  .card.data .item{border-left-color:var(--c-data)}
+  .card.data .num{background:var(--c-data)}
+  .foot{
+    text-align:center;color:#9aa0ad;font-size:12px;line-height:1.9;
+    padding:8px 12px 28px;
+  }
+  .foot .warn{color:#c08a4a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== 卡片一：总览 ===== -->
+  <section class="card overview">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-overview)">
+      <div class="kicker">AI & ROBOTICS WEEKLY · W28</div>
+      <div class="date">2026 W28 · 7/6-7/12</div>
+      <div class="lede">这一周，国产大模型三连开源（腾讯 Hy3、美团 LongCat-2.0、阿里 Fun-ASR）引爆算力去英伟达化，宇树科技科创板 IPO 注册生效成"A 股人形机器人第一股"，苹果凌晨起诉 OpenAI 窃取 AI 硬件机密——AI 产业链从"烧钱"进入"价值兑现"阶段。</div>
+    </div>
+    <div class="pad">
+      <div class="trend">
+        过去这一周，AI 行业最值得记住的四条主线同时炸开。<br><br>
+
+        <b>科技线：国产大模型"开源三连"集中爆发，国产算力完成关键验证。</b>7/6-7/7 三天内，腾讯混元 Hy3（295B 总参、21B 激活，Apache 2.0 协议开源、API 低至 1 元/百万 token）、美团 LongCat-2.0（1.6 万亿参数 MoE，五万张国产算力卡端到端训推 SWE-bench Pro 59.5）、阿里 Fun-ASR-Realtime（30 种语言 + 16 种方言，端到端延迟 < 300ms）相继发布。LongCat-2.0 是业界首个完全去英伟达化的万亿参数模型，摩尔线程已宣布完成适配。<br><br>
+
+        <b>产业&地缘线：宇树科技科创板 IPO 注册生效。</b>7/7 中国证监会公告宇树科技科创板 IPO 注册生效，从受理到注册仅 104 天，刷新科创板"预先审阅机制"最快纪录，拟募资 42 亿，上市后预估市值约 420 亿，2025 年人形机器人出货 5500 台居全球第一。同时墨奇智能（前华为智驾负责人黄青虬领衔）完成超 10 亿天使轮，阿里/腾讯/蓝驰/君联/高榕联投，刷新国内具身智能首轮公开融资纪录。<br><br>
+
+        <b>数据&资本线：存储芯片超级周期持续，AI 算力需求见顶。</b>Q2 DRAM 均价环比 +44%，NAND +53%，SK 海力士美股首秀暴涨 13% 创海外赴美最大 IPO 融资纪录（265 亿美元）。通富微电签 SK 海力士 62.8 亿 HBM 长单，锁单到 2030 年。长鑫存储 7/13 询价、7/16 申购，募资 295 亿成 2026 A 股最大 IPO。商务部 7/11 临时管制氦气出口（占全球 21%），叠加 DRAM/NAND Q3 涨价 20-40%。<br><br>
+
+        <b>机器人线：宇树 G1 完成全球首例活体微创手术登上 Nature。</b>UCSD 团队用宇树 G1 通过遥操作完成活体猪腹腔镜胆囊切除术，主控时间从 56 分 15 秒缩至 31 分 59 秒，标志人形机器人迈入高风险医疗场景临界点。<br><br>
+
+        <b>这周只说明一件事：AI 不再是"百模大战"的烧钱游戏，而是"开源 + 国产算力 + 价值兑现 + 算力去英伟达化"四线并进的硬科技竞速。</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片二：科技 ===== -->
+  <section class="card tech">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-tech)">
+      <div class="sec-head">
+        <div class="sec-emoji">🔬</div>
+        <div class="sec-title">科技 · 模型与基础设施</div>
+        <div class="sec-sub">TECH · MODEL & INFRA</div>
+      </div>
+    </div>
+    <div class="pad">
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">腾讯混元 Hy3 正式版发布并 Apache 2.0 开源 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">295B 总参 / 21B 激活 / <b>1 元/百万 token</b></div>
+            <div class="i-desc">7/6-7/7 陆续上线，MoE 架构 + 256K 上下文窗口，幻觉率从 12.5% 降至 5.4%，Agent 任务规划能力比肩参数规模为其 2~5 倍的旗舰模型。两周免费试用，元宝 + 腾讯云 API 已接入。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7659946569848750611/">今日头条·总裁办</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">美团开源 LongCat-2.0：全球首个五万卡国产集群训推的万亿 MoE <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">1.6 万亿参数 / <b>五万张国产算力卡</b> / 无英伟达</div>
+            <div class="i-desc">业界首个完全去英伟达化的万亿参数模型，SWE-bench Pro 59.5 / Terminal-Bench 2.1 70.8，综合表现接近 Gemini 3.1 Pro 与 Claude Opus 4.6。摩尔线程已宣布完成适配，国产 AI 算力生态里程碑。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7659946569848750611/">今日头条·总裁办</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">阿里通义 Fun-ASR-Realtime 实时语音识别 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook"><b>30 种语言 + 16 种方言</b> / 端到端 < 300ms</div>
+            <div class="i-desc">7/7 发布，单模型覆盖中英日韩等 30 种语言及 16 种中文方言，针对低延迟流式识别深度优化。曾为影视飓风百小时直播提供实时字幕（6 万条 / 132 万字），会议转录与跨国商务场景国产化替代方案。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7659946569848750611/">今日头条·总裁办</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">4</div>
+          <div class="body">
+            <div class="i-title">OpenAI GPT-5.6 系列正式上线 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">Sol/Terra/Luna 三档，纳德拉称微软 Copilot 同步接入</div>
+            <div class="i-desc">7/10 在 ChatGPT、Codex、API 中全量上线。Sol 旗舰 SWE-bench Pro 编程基准超越 Claude Fable 5，Agentic Coding 任务刷新 SOTA；Terra 定价约为上一代一半。微软 Copilot 同步接入，企业级渗透加速。</div>
+            <div class="i-src">来源：<a href="https://blog.csdn.net/aibridge/article/details/162743617">CSDN</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">5</div>
+          <div class="body">
+            <div class="i-title">中科曙光"曙光 8000"十万卡全国产超集群落成 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">全国产芯片 + scaleFabric 类 IB + 浸没式液冷</div>
+            <div class="i-desc">7/10 在光合组织 2026 智能计算应用大会正式亮相，全国产芯片 + scaleFabric 类 IB 高速网 + 浸没式液冷 + ParaStor 分布式存储（IO500 双榜第一），已接入国家超算互联网。2024 研制→2026.6 十万卡，国产算力跨过万卡门槛启动规模化复制。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7659946569848750611/">今日头条·总裁办</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">6</div>
+          <div class="body">
+            <div class="i-title">苹果凌晨起诉 OpenAI 窃取 AI 硬件机密 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">要求销毁涉密资料并重新设计硬件</div>
+            <div class="i-desc">苹果指控 OpenAI 挖走核心硬件团队、窃取未发布产品机密，要求销毁涉密资料并重新设计硬件。同日 OpenAI 消费业务负责人 Fidji Simo 因神经免疫疾病离职，职责一拆为三，IPO 前景再蒙阴影。</div>
+            <div class="i-src">来源：华尔街见闻 / AI 日报</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片三：财经 ===== -->
+  <section class="card finance">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-finance)">
+      <div class="sec-head">
+        <div class="sec-emoji">💰</div>
+        <div class="sec-title">财经 · 投融资与产业</div>
+        <div class="sec-sub">FINANCE · FUNDING & INDUSTRY</div>
+      </div>
+    </div>
+    <div class="pad">
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">长鑫存储科创板 IPO 295 亿，7/16 申购 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">2026 A 股最大规模 IPO，<b>募资 295 亿</b>扩产 12 英寸 DRAM</div>
+            <div class="i-desc">7/13 初步询价，存储芯片/封测/设备全链受益。"国产 GPU 四小龙"之一燧原科技同步拟募资 60 亿元，用于五代、六代 AI 芯片研发及产业化，2026 H1 营收预计大幅增长。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7660674196418167332/">今日头条</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">SK 海力士美股首秀暴涨 13%，融资 265 亿美元 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">刷新阿里保持十余年的海外赴美最大 IPO 纪录</div>
+            <div class="i-desc">发行近 1.8 亿 ADR 融资 265 亿美元。Meta 发布付费大模型后两日连涨、全周近 15%，英伟达收涨 4%，纳指三连阳、标普创一个多月新高。</div>
+            <div class="i-src">来源：华尔街见闻 / Bloomberg</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">通富微电签 SK 海力士 62.8 亿 HBM 长单 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">四年长协锁单到 2030 年，<b>最大海外 HBM 单</b></div>
+            <div class="i-desc">通富微电公告签 SK 海力士 62.8 亿 HBM 长单，封测龙头拿到最大海外 HBM 单，长电、华天等封测板块情绪同振。但三星、SK 海力士同步暂缓 HBM4 配套混合键合规模化，存储产业链逻辑转向。</div>
+            <div class="i-src">来源：通富微电公告 / 静言观盘</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">4</div>
+          <div class="body">
+            <div class="i-title">商务部临时管制 6N 级超高纯电子氦气出口 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">EUV 光刻 + HBM 堆叠关键原料，<b>国产电子特气直接受益</b></div>
+            <div class="i-desc">7/11 商务部 + 海关总署官宣即刻执行，7/12 凌晨再发 6N 级电子氦气临时管制公告。EUV 光刻与 HBM 堆叠封装关键原料国产供给保障强化。Q3 DRAM 合约价预计涨 20-30%，NAND 涨 35-40%，瑞银预计紧张持续至 2028 H1。</div>
+            <div class="i-src">来源：商务部 / 海关总署 / 财联社</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">5</div>
+          <div class="body">
+            <div class="i-title">墨奇智能 10 亿+天使轮，阿里/腾讯/蓝驰/君联/高榕联投 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">前华为智驾黄青虬领衔，<b>估值 70 亿</b>，具身智能首轮纪录</div>
+            <div class="i-desc">7/7 宣布，刷新国内具身智能赛道首轮公开融资纪录。锚定通用家庭服务机器人，主攻可自进化具身大脑 + 低成本高自由度本体，三年内推首款 C 端通用操作机器人原型。同日生数科技 B+ 轮 34 亿（世界模型 Motus）、星动纪元 10 亿。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7659946569848750611/">今日头条·总裁办</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">6</div>
+          <div class="body">
+            <div class="i-title">港股恒指本周累涨 8 个月最佳，小米/联想/港交所领涨 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">恒指周五收 24,175，<b>8 个多月来最强</b></div>
+            <div class="i-desc">中概互联网与 AI 概念双线发力。Wall Street 同步收高，标普 +0.74% 至 7,538.34，纳指 +1.12% 至 26,121.16；科技股剧烈分化（Meta 涨近 6% / SpaceX 跌超 4%）。</div>
+            <div class="i-src">来源：TradingEconomics / WAM Emirates News</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片四：数据 ===== -->
+  <section class="card data">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-data)">
+      <div class="sec-head">
+        <div class="sec-emoji">📊</div>
+        <div class="sec-title">数据 · 关键指标</div>
+        <div class="sec-sub">DATA · KEY METRICS</div>
+      </div>
+    </div>
+    <div class="pad">
+      <div class="databox">
+        <h4>📈 2026 Q2 存储芯片均价环比涨幅（AI 需求驱动）</h4>
+        <div class="bar-row">
+          <div class="bar-label">DRAM</div>
+          <div class="bar-track"><div class="bar-fill t1" style="width:83%">+44%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">NAND Flash</div>
+          <div class="bar-track"><div class="bar-fill t1" style="width:100%">+53%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Q3 DRAM 预期</div>
+          <div class="bar-track"><div class="bar-fill t2" style="width:50%">+20~30%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Q3 NAND 预期</div>
+          <div class="bar-track"><div class="bar-fill t2" style="width:75%">+35~40%</div></div>
+        </div>
+      </div>
+      <div class="databox">
+        <h4>🏆 W28 国产大模型"开源三连"参数规模对比</h4>
+        <div class="bar-row">
+          <div class="bar-label">腾讯 Hy3</div>
+          <div class="bar-track"><div class="bar-fill t3" style="width:18%">295B / 21B 激活</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">美团 LongCat-2.0</div>
+          <div class="bar-track"><div class="bar-fill t3" style="width:100%">1.6T / 48B 激活</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">GPT-5.6 (Sol)</div>
+          <div class="bar-track"><div class="bar-fill t2" style="width:75%">未披露 / SOTA</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Claude Opus 4.6</div>
+          <div class="bar-track"><div class="bar-fill t4" style="width:60%">未披露 / SOTA</div></div>
+        </div>
+      </div>
+      <div class="databox">
+        <h4>💵 W28 具身智能 / 机器人融资 Top 榜（亿元人民币）</h4>
+        <div class="bar-row">
+          <div class="bar-label">宇树科技（IPO）</div>
+          <div class="bar-track"><div class="bar-fill t5" style="width:96%">42 (募资) / 420 估值</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">墨奇智能</div>
+          <div class="bar-track"><div class="bar-fill t4" style="width:23%">10+ / 70 估值</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">生数科技 B+</div>
+          <div class="bar-track"><div class="bar-fill t4" style="width:78%">34</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">星动纪元</div>
+          <div class="bar-track"><div class="bar-fill t4" style="width:23%">10</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Even Realities</div>
+          <div class="bar-track"><div class="bar-fill t1" style="width:35%">$1.5 / 10 亿估值</div></div>
+        </div>
+      </div>
+      <div class="databox">
+        <h4>🤖 机器人产业关键数据（W28）</h4>
+        <div class="bar-row">
+          <div class="bar-label">宇树科技出货</div>
+          <div class="bar-track"><div class="bar-fill t5" style="width:90%">5500+ (2025 全球第一)</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">智元 G2 累计</div>
+          <div class="bar-track"><div class="bar-fill t4" style="width:75%">15000+ 台</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">宇树 G1 手术</div>
+          <div class="bar-track"><div class="bar-fill t5" style="width:57%">56:15 → 31:59</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">特斯拉 Optimus</div>
+          <div class="bar-track"><div class="bar-fill t2" style="width:48%">1000 台/周 (9 月)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片五：机器人 / 产业 ===== -->
+  <section class="card human">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-human)">
+      <div class="sec-head">
+        <div class="sec-emoji">🤖</div>
+        <div class="sec-title">机器人 · 产业进展</div>
+        <div class="sec-sub">ROBOTICS · INDUSTRY UPDATE</div>
+      </div>
+    </div>
+    <div class="pad">
+      <div class="item">
+        <div class="row">
+          <div class="num">1</div>
+          <div class="body">
+            <div class="i-title">宇树科技科创板 IPO 注册生效 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">"A 股人形机器人第一股"，<b>从受理到注册 104 天</b></div>
+            <div class="i-desc">7/7 中国证监会公告生效，刷新科创板"预先审阅机制"最快纪录。拟募资 42 亿用于具身大模型研发、新一代本体迭代及海外渠道建设，上市后预估市值约 420 亿。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7659946569848750611/">今日头条·总裁办</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">2</div>
+          <div class="body">
+            <div class="i-title">宇树 G1 完成全球首例活体微创手术登 Nature <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">UCSD 团队活体猪腹腔镜胆囊切除，<b>主控时间 -43%</b></div>
+            <div class="i-desc">7/11 公开。G1 通过遥操作完成活体猪腹腔镜胆囊切除术，主控时间从 56 分 15 秒缩至 31 分 59 秒。标志人形机器人迈入高风险医疗场景临界点。</div>
+            <div class="i-src">来源：上证报 / 中国新闻网</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">3</div>
+          <div class="body">
+            <div class="i-title">智元机器人第 15000 台精灵 G2 下线 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">距万台下线不到 3 个月，<b>年柔性交付 10 万台+</b></div>
+            <div class="i-desc">7/7 披露，国内首个跑通"万台级量产—实景实训—商业闭环"的具身智能企业。G2 在上海龙旗科技电子产线常态化承担多媒体测试、辐射检测，单工位作业成功率超 99%。爱仕达签战略合作承接部分装配与批量交付。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7659946569848750611/">今日头条·总裁办</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">4</div>
+          <div class="body">
+            <div class="i-title">至简动力 i7 Pro 完成首批 100 台交付 <span class="tag tag-proven">🟢 高</span></div>
+            <div class="i-hook">百台级交付最快纪录，<b>22.98 万元顶配</b></div>
+            <div class="i-desc">由前理想汽车智驾团队创立，7/7 在苏州完成首批 100 台交付。全球首个 CNC 智能化具身产线落成，预计 1.5 年可在 CNC 加工场景收回成本。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7659946569848750611/">今日头条·总裁办</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">5</div>
+          <div class="body">
+            <div class="i-title">特斯拉三代 Optimus 初步定型，9 月 1000 台/周 <span class="tag tag-multi">🟢 高</span></div>
+            <div class="i-hook">马斯克：达不成产能目标就开掉整个采购团队</div>
+            <div class="i-desc">7/9 特斯拉供应链消息，近期下发具体零件采购指引，要求供应商今年 9 月产能提到 1000 台/周，年底提升到 2000-2500 台/周。马斯克放话达不成目标就重组采购团队。</div>
+            <div class="i-src">来源：<a href="https://m.toutiao.com/group/7660674196418167332/">今日头条</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 卡片六：本周时间线 + 链接 ===== -->
+  <section class="card tech">
+    <div class="bar"></div>
+    <div class="hero" style="background:var(--bg-tech)">
+      <div class="sec-head">
+        <div class="sec-emoji">📅</div>
+        <div class="sec-title">本周时间线</div>
+        <div class="sec-sub">WEEKLY TIMELINE</div>
+      </div>
+    </div>
+    <div class="pad">
+      <div class="item">
+        <div class="row">
+          <div class="num">7/6</div>
+          <div class="body">
+            <div class="i-title">腾讯混元 Hy3 正式版 + Rokid YodaOS Agent OS</div>
+            <div class="i-desc">腾讯 Hy3 Apache 2.0 开源，API 1 元/百万 token。Rokid 公布全球首款 Agent 原生智能眼镜操作系统 YodaOS，集成京东/高德/支付宝/微信支付。</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">7/7</div>
+          <div class="body">
+            <div class="i-title">国产模型三连开源 + 宇树 IPO 注册生效 + 智元 15000 台</div>
+            <div class="i-desc">美团 LongCat-2.0（1.6T 参数 / 五万国产卡）、阿里 Fun-ASR-Realtime 同步发布。宇树科技科创板 IPO 注册生效（104 天最快纪录）。智元第 15000 台 G2 下线，墨奇智能 10 亿+天使轮。</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">7/9</div>
+          <div class="body">
+            <div class="i-title">小米澎程 SkyNomad 公布 + 特斯拉 Optimus 1000 台/周</div>
+            <div class="i-desc">小米汽车全新产品系列 SkyNomad 智能可变大空间 SUV 开启预约咨询。特斯拉三代 Optimus 初步定型，9 月 1000 台/周采购指引下达。华为李文广确认明年技术上实现高速 L3。</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">7/10</div>
+          <div class="body">
+            <div class="i-title">OpenAI GPT-5.6 全量上线 + 曙光 8000 落成 + 苹果起诉 OpenAI</div>
+            <div class="i-desc">GPT-5.6 三档全量，纳德拉称微软 Copilot 同步接入。中科曙光 8000 十万卡全国产超集群正式落成，IO500 双榜第一。苹果凌晨起诉 OpenAI 窃取 AI 硬件机密。</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">7/11</div>
+          <div class="body">
+            <div class="i-title">宇树 G1 登 Nature + 商务部氦气管制 + SK 海力士 IPO 暴涨 13%</div>
+            <div class="i-desc">宇树 G1 完成全球首例活体猪微创手术，主控时间从 56:15 缩至 31:59。商务部临时管制 6N 级超高纯电子氦气出口。SK 海力士美股首秀暴涨 13% 创 265 亿美元 IPO 纪录。</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="num">7/12</div>
+          <div class="body">
+            <div class="i-title">长鑫询价 + 台风巴威登陆 + 通富微电 HBM 长单</div>
+            <div class="i-desc">长鑫存储科创板 IPO 进入询价，募资 295 亿。台风"巴威"13 级登陆浙江玉环，财政部紧急预拨 4000 万救灾。通富微电签 SK 海力士 62.8 亿 HBM 长单，锁单到 2030 年。港股恒指本周累涨 8 个月最佳。</div>
+          </div>
+        </div>
+      </div>
+      <a class="linkbtn" href="https://icetea523.github.io/ai-daily-news/" target="_blank" rel="noopener">
+        🌐 GitHub Pages 在线查看
+        <span class="sub">icetea523.github.io/ai-daily-news</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="foot">
+    <div>📌 本周报基于公开来源整理，事件可信度见标签</div>
+    <div>数据来源：36kr / 今日头条 / 总裁办 / CSDN / writingmate.ai / 掘金 / 央视 / 新华社 / Bloomberg / 财联社 / 中国证券报 / 商务部 / 海关总署 / 静言观盘 / 清野投研说</div>
+    <div class="warn">⚠️ 部分事件（HBM4 暂缓 / 港股恒指涨幅）为单源未交叉验证</div>
+    <div style="margin-top:8px">— 阿海 出品 · 2026 W28 —</div>
+  </div>
+</div>
+</body>
+</html>
